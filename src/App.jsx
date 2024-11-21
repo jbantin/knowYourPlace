@@ -1,12 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Header from "./components/Header";
+import Info from "./components/Info";
+import Overview from "./components/Overview";
+import Search from "./components/Search";
+import Map from "./components/Map";
 
 function App() {
   return (
     <>
-      <h1>Guten Tag</h1>
+      <div>
+        <Header />
+        <Search />
+      </div>
+
+      <Map />
+
+      <div>
+        <Overview />
+        <Info />
+      </div>
     </>
   );
 }
