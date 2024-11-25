@@ -14,28 +14,16 @@ const ChangeMapView = ({ coords }) => {
   }, [coords, map]);
   return null;
 };
-
-
   
-const Map = () => {
+  const Map = () => {
   const contextData = useContext(LocationContext);
-  if (contextData.locationData) {
-    console.log(contextData.locationData.lat);
-    location.latitude = contextData.locationData.lat;
-    location.longitude = contextData.locationData.lon;
-   }
-  const position = [53.55, 10];
-  
-  useEffect(() => {
-    if (contextData.locationData.coord)
-      console.log("huhu" + contextData.locationData.coord.lon);
-  }, [contextData.locationData]);
+
   return (
     <>
       <div id="map" className="w-full h-[50vh] overflow-hidden">
         <MapContainer
           className="w-full h-[60vh]"
-          center={position}
+          center={[contextData.locationData.lat, contextData.locationData.lon]}
           zoom={15}
           scrollWheelZoom={true}
         >
@@ -44,12 +32,12 @@ const Map = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          <Marker position={position}>
+          <Marker position={[contextData.locationData.lat, contextData.locationData.lon]}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
           </Marker>
-          <ChangeMapView coords={[location.latitude, location.longitude]} />
+          <ChangeMapView coords={[contextData.locationData.lat, contextData.locationData.lon]} />
         </MapContainer>
       </div>
     </>
