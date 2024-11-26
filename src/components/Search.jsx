@@ -51,7 +51,7 @@ const Search = () => {
             placeholder="location"
           />
         </form>
-        <div className="fixed z-1000 ">
+        <div className="fixed z-[500] dark:bg-slate-800 ">
           {data &&
             data.map((loc, i) => (
               <h1 className="dark:text-white" onClick={clickHandler} key={i} id={i}>
