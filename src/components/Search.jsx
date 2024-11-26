@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LocationContext } from "./context/locationContext";
-const weatherUrl =
-  "http://api.openweathermap.org/data/2.5/weather?id=524901&appid=de069a928e6b04d0efc907091fbbae01";
+
 const Search = () => {
   const [input, setInput] = useState("");
   const [data, setData] = useState([]);
@@ -51,10 +50,15 @@ const Search = () => {
             placeholder="location"
           />
         </form>
-        <div className="fixed z-[500] dark:bg-slate-800 ">
+        <div className="fixed z-[1500] dark:bg-slate-800 ">
           {data &&
             data.map((loc, i) => (
-              <h1 className="dark:text-white" onClick={clickHandler} key={i} id={i}>
+              <h1
+                className="dark:text-white"
+                onClick={clickHandler}
+                key={i}
+                id={i}
+              >
                 {loc.address.city}
               </h1>
             ))}
