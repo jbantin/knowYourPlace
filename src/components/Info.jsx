@@ -21,7 +21,7 @@ const Info = () => {
   }, [locationData]);
   return (
     <>
-      <div className="w-full h-[15vh] p-4">
+      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[15vh]">
         {weatherData && locationData.address ? (
           <div>
             <h1 className="font-bold">

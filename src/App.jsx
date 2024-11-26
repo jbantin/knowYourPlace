@@ -11,7 +11,7 @@ import {
 
 function App() {
   return (
-    <>
+    <div className=" dark:bg-slate-800">
       <LocationContextProvider>
         <Header />
         <Search />
@@ -23,7 +23,7 @@ function App() {
           <Info />
         </div>
       </LocationContextProvider>
-    </>
+    </div>
   );
 }
 

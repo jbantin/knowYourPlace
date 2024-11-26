@@ -3,7 +3,8 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <h1 className="font=bolt underline text-center">WOLKE</h1>
+      <img src="" alt="" />
+      <h1 className="font-black dark:text-white text-4xl text-center p-5">Know your Place!</h1>
     </>
   );
 };
