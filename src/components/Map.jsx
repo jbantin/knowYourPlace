@@ -20,7 +20,7 @@ const ChangeMapView = ({ coords }) => {
 
   return (
     <>
-      <div id="map" className="w-full h-[50vh] overflow-hidden">
+      <div id="map" className="my-3 w-full h-[40vh] overflow-hidden ">
         <MapContainer
           className="w-full h-[60vh]"
           center={[contextData.locationData.lat, contextData.locationData.lon]}
