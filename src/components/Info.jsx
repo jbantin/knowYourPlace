@@ -10,7 +10,7 @@ const Info = () => {
   useEffect(() => {
     const fetchWeather = async (city) => {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${locationData.lat}&lon=${locationData.lon}&appid=${API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
       );
       const weather = await response.json();
       console.log(weather);
@@ -21,15 +21,12 @@ const Info = () => {
   }, [locationData]);
   return (
     <>
-      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[15vh]">
-        {weatherData && locationData.address ? (
+      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[30vh]">
+        <h1>oioioi</h1>
+        {weatherData  ? (
           <div>
             <h1 className="font-bold">
-              {locationData.name}, {weatherData.name}
-              {", "}
-              {locationData.address.city}
-              {", "}
-              {locationData.address.country}
+               {weatherData.name}
             </h1>
 
             <img

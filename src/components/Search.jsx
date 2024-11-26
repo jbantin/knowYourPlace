@@ -4,7 +4,7 @@ import { LocationContext } from "./context/locationContext";
 const Search = () => {
   const [input, setInput] = useState("");
   const [data, setData] = useState([]);
-  const { setLocationData } = useContext(LocationContext);
+  const { setLocationData,locationData } = useContext(LocationContext);
 
   const changeHandler = (e) => {
     setInput(e.target.value);
@@ -13,29 +13,44 @@ const Search = () => {
   const clickHandler = (e) => {
     console.log(e.target.id);
     const loc = data[e.target.id];
+    console.log(loc);
     setLocationData(loc);
+ 
   };
 
   const address = input;
   useEffect(() => {
     const getData = async () => {
       if (address != "") {
-        try {
-          const response = await fetch("http://localhost:3007/geocode", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ address }),
-          });
-          const result = await response.json();
-          console.log(result);
-          setData(result);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      }
-    };
+            try {
+              const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=e31bf5171c604a6587630b27de2475f9`);
+              const result = await response.json();
+              
+              setData(result.results);
+              console.log(result.results);
+            } catch (error) {
+              console.error("Error fetching data:", error);
+            }
+          }
+    }
+    // const getData = async () => {
+    //   if (address != "") {
+    //     try {
+    //       const response = await fetch("http://localhost:3007/geocode", {
+    //         method: "POST",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({ address }),
+    //       });
+    //       const result = await response.json();
+    //       console.log(result);
+    //       setData(result);
+    //     } catch (error) {
+    //       console.error("Error fetching data:", error);
+    //     }
+    //   }
+    // };
     getData();
   }, [input]);
   return (
@@ -59,7 +74,7 @@ const Search = () => {
                 key={i}
                 id={i}
               >
-                {loc.address.city}
+                {loc.formatted}
               </h1>
             ))}
         </div>
