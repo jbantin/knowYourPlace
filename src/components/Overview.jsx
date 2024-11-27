@@ -23,13 +23,14 @@ const Overview = () => {
 
   useEffect(() => {
     if (!weatherData) return;
+    console.log(weatherData);
     const getInfo = async (loc) => {
       const chatSession = model.startChat({
         generationConfig,
         history: [],
       });
       const result = await chatSession.sendMessage(
-        "tell me some interresting facts about hamburg-mitte"
+        `tell me some interresting facts about the area,${weatherData.name} and district lon:${weatherData.coord.lon},lat:${weatherData.coord.lat} .`
       );
       let responseArray = result.response.text().split("**");
       let newResponse = "";
@@ -46,7 +47,7 @@ const Overview = () => {
       return;
     };
     getInfo();
-  }, []);
+  }, [weatherData]);
 
   return (
     <>
