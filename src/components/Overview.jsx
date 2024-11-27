@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { LocationContext } from "./context/locationContext";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const apiKey = "AIzaSyCD5N9puQOoYtBcdhfo3fOdzZT16vx9n8s";
+const genAI = new GoogleGenerativeAI(apiKey);
+
+const model = genAI.getGenerativeModel({
+  model: "gemini-1.5-flash",
+});
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 8192,
+  responseMimeType: "text/plain",
+};
 
 const Overview = () => {
+  const [info, setInfo] = useState();
+  const { weatherData } = useContext(LocationContext);
+
+  useEffect(() => {
+    if (!weatherData) return;
+    const getInfo = async (loc) => {
+      const chatSession = model.startChat({
+        generationConfig,
+        history: [],
+      });
+      const result = await chatSession.sendMessage(
+        "tell me some interresting facts about hamburg-mitte"
+      );
+      let responseArray = result.response.text().split("**");
+      let newResponse = "";
+      for (let i = 0; i < responseArray.length; i++) {
+        if (i === 0 || i % 2 !== 1) {
+          newResponse += responseArray[i];
+        } else {
+          newResponse += "<b>" + responseArray[i] + "</b>";
+        }
+      }
+      let newResponse2 = newResponse.split("*").join("</br>");
+      setInfo(newResponse2);
+
+      return;
+    };
+    getInfo();
+  }, []);
+
   return (
     <>
-      <div className="w-full h-[15vh]">Overview</div>
+      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-2 h-[15vh]">
+        <p dangerouslySetInnerHTML={{ __html: info }}></p>
+      </div>
     </>
   );
 };

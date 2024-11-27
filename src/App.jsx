@@ -11,7 +11,7 @@ import {
 
 function App() {
   return (
-    <>
+    <div className=" dark:bg-slate-800">
       <LocationContextProvider>
         <Header />
         <Search />
@@ -19,11 +19,11 @@ function App() {
         <Map />
 
         <div>
-          <Overview />
           <Info />
+          <Overview />
         </div>
       </LocationContextProvider>
-    </>
+    </div>
   );
 }
 

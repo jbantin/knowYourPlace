@@ -4,13 +4,10 @@ import { useState, useMemo, useCallback, useRef } from "react";
 import { Marker, Popup } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
 
-
-
-
 function DraggableMarker() {
   const context = useContext(LocationContext);
   const [draggable, setDraggable] = useState(false);
-  const [position, setPosition] = useState(context.locationData);
+  const [position, setPosition] = useState(context.locationData.geometry);
   const markerRef = useRef(null);
   const eventHandlers = useMemo(
     () => ({
@@ -18,9 +15,13 @@ function DraggableMarker() {
         const marker = markerRef.current;
         if (marker != null) {
           setPosition(marker.getLatLng());
-          console.log(marker.getLatLng());
-          context.setLocationData({ lat:marker.getLatLng().lat, lon:marker.getLatLng().lng });
-          
+
+          context.setLocationData({
+            geometry: {
+              lat: marker.getLatLng().lat,
+              lng: marker.getLatLng().lng,
+            },
+          });
         }
       },
     }),
