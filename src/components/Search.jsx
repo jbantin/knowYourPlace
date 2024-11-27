@@ -33,24 +33,7 @@ const Search = () => {
             }
           }
     }
-    // const getData = async () => {
-    //   if (address != "") {
-    //     try {
-    //       const response = await fetch("http://localhost:3007/geocode", {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({ address }),
-    //       });
-    //       const result = await response.json();
-    //       console.log(result);
-    //       setData(result);
-    //     } catch (error) {
-    //       console.error("Error fetching data:", error);
-    //     }
-    //   }
-    // };
+
     getData();
   }, [input]);
   return (

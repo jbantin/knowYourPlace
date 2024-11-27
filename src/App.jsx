@@ -19,8 +19,8 @@ function App() {
         <Map />
 
         <div>
-          <Overview />
           <Info />
+          <Overview />
         </div>
       </LocationContextProvider>
     </div>

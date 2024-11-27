@@ -19,7 +19,7 @@ function DraggableMarker() {
         if (marker != null) {
           setPosition(marker.getLatLng());
           console.log(marker.getLatLng().lng);
-          // console.log(context.locationData.geometry.lng);
+          
           
           context.setLocationData({ geometry:{ lat: marker.getLatLng().lat, lng: marker.getLatLng().lng } });
           

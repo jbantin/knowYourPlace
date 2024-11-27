@@ -58,24 +58,6 @@ const Map = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <DraggableMarker />
-          {/* <Marker
-            draggable={draggable}
-            eventHandlers={eventHandlers}
-            // position={position}
-            ref={markerRef}
-            position={[
-              contextData.locationData.lat,
-              contextData.locationData.lon,
-            ]}
-          >
-            <Popup minWidth={90}>
-              <span onClick={toggleDraggable}>
-                {draggable
-                  ? "Marker is draggable"
-                  : "Click here to make marker draggable"}
-              </span>
-            </Popup>
-          </Marker> */}
           <ChangeMapView
             coords={[
               contextData.locationData.geometry.lat,contextData.locationData.geometry.lng
