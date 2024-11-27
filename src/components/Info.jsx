@@ -16,6 +16,11 @@ const Info = () => {
       console.log(weather);
       console.log(locationData);
       setWeatherData(weather);
+      const response2 = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
+      );
+      const forecast = await response2.json();
+      console.log(forecast);
     };
     fetchWeather();
   }, [locationData]);
@@ -23,11 +28,9 @@ const Info = () => {
     <>
       <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[30vh]">
         <h1>oioioi</h1>
-        {weatherData  ? (
+        {weatherData ? (
           <div>
-            <h1 className="font-bold">
-               {weatherData.name}
-            </h1>
+            <h1 className="font-bold">{weatherData.name}</h1>
 
             <img
               src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
