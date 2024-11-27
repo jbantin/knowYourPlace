@@ -4,13 +4,12 @@ const weatherUrl =
   "http://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=10&appid=de069a928e6b04d0efc907091fbbae01&units=metric";
 const API_KEY = "de069a928e6b04d0efc907091fbbae01&units=metric";
 const Info = () => {
-  const [weatherData, setWeatherData] = useState(null);
+  const { weatherData, setWeatherData } = useContext(LocationContext);
   const [forecastData, setForecastData] = useState(null);
   const { locationData } = useContext(LocationContext);
   const [forecast, setForecast] = useState(false);
   const buttonClickHandler = () => {
     setForecast(!forecast);
-  
   };
 
   useEffect(() => {
@@ -42,7 +41,8 @@ const Info = () => {
               <div className="flex m-[5%] overflow-x-auto gap-5 w-[90%] ">
                 {forecastData.list.map((data, i) => (
                   <h1 key={i}>
-                    {data.dt_txt.split(" ")[1].split(":")[0]}:00 {data.main.temp}°C
+                    {data.dt_txt.split(" ")[1].split(":")[0]}:00{" "}
+                    {data.main.temp}°C
                   </h1>
                 ))}
               </div>
