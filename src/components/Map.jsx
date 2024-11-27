@@ -38,7 +38,7 @@ const ChangeMapView = ({ coords }) => {
 
 const Map = () => {
   const contextData = useContext(LocationContext);
-  console.log(contextData.locationData.geometry.lat, contextData.locationData.geometry.lng);
+ 
 
   
 
