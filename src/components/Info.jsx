@@ -35,14 +35,14 @@ const Info = () => {
           {forecast ? "->current" : "forecast"}
         </button>
         {weatherData ? (
-          <div>
+          <div className="justify-center">
             <h1 className="font-bold">{weatherData.name}</h1>
 
             {forecast ? (
-              <div className="flex">
+              <div className="flex m-[5%] overflow-x-auto gap-5 w-[90%] ">
                 {forecastData.list.map((data, i) => (
                   <h1 key={i}>
-                    {data.dt_txt} : {data.main.temp}°C
+                    {data.dt_txt.split(" ")[1].split(":")[0]}:00 {data.main.temp}°C
                   </h1>
                 ))}
               </div>

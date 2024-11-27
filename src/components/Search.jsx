@@ -24,14 +24,12 @@ const Search = () => {
             `https://api.opencagedata.com/geocode/v1/json?q=${address}&key=e31bf5171c604a6587630b27de2475f9`
           );
           const result = await response.json();
-
           setData(result.results);
         } catch (error) {
           console.error("Error fetching data:", error);
         }
       }
     };
-
     getData();
   }, [input]);
   return (
