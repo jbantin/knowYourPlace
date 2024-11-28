@@ -20,7 +20,7 @@ function App() {
 
         <div>
           <Info />
-          <Overview />
+          {/* <Overview /> */}
         </div>
       </LocationContextProvider>
     </div>
