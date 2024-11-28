@@ -6,8 +6,11 @@ import "leaflet/dist/leaflet.css";
 import DraggableMarker from "./DraggableMarker";
 import { useMap, useMapEvents } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
+import mapArray from "./Skins";
+import buttonImg from "../assets/button.svg";
 
 function LocationMarker() {
+  console.log(mapArray);
   const [position, setPosition] = useState(null);
   const { setLocationData } = useContext(LocationContext);
   const map = useMapEvents({
@@ -35,7 +38,8 @@ const ChangeMapView = ({ coords }) => {
 
 const Map = () => {
   const contextData = useContext(LocationContext);
-
+  const [map, setMap] = useState(0);
+  const [dropDown, setDropDown] = useState(false);
   return (
     <>
       <div id="map" className="my-3 w-full h-[40vh] overflow-hidden ">
@@ -49,8 +53,8 @@ const Map = () => {
           scrollWheelZoom={true}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution={mapArray[map].attribution}
+            url={mapArray[map].url}
           />
           <DraggableMarker />
           <ChangeMapView
@@ -61,6 +65,30 @@ const Map = () => {
           />
           <LocationMarker />
         </MapContainer>
+        <button
+          className="absolute z-[1000] top-[144px] right-[30px]  p-1 rounded-lg w-[42px] drop-shadow-xl hover:hue-rotate-180 hover:rotate-180"
+          onClick={() => setDropDown(!dropDown)}
+        >
+          <img src={buttonImg} alt="" />
+        </button>
+        {dropDown ? (
+          <div className="absolute z-[1000] top-[190px] right-[30px] flex flex-col ">
+            {mapArray.map((map, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setMap(i);
+                  setDropDown(false);
+                }}
+                className="bg-slate-500 p-1 mb-2 rounded-lg dark:text-white"
+              >
+                {map.name}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <p></p>
+        )}
       </div>
     </>
   );

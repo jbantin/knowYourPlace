@@ -17,7 +17,7 @@ function App() {
         <Search />
 
         <Map />
-
+        
         <div>
           <Info />
           <Overview />
