@@ -10,8 +10,8 @@ import mapArray from "./Skins";
 
 
 function LocationMarker() {
-  
-  const [position, setPosition] = useState(null);
+  const { position, setPosition } = useContext(LocationContext);
+  // const [position, setPosition] = useState(null);
   const { setLocationData,zoom ,setZoom} = useContext(LocationContext);
 
   const map = useMapEvents({

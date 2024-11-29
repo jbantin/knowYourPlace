@@ -5,7 +5,7 @@ const Search = () => {
   const [input, setInput] = useState("");
   const [inputFocus, setInputFocus] = useState(false);
   const [data, setData] = useState([]);
-  const { setLocationData, locationData } = useContext(LocationContext);
+  const { setLocationData, locationData,setPosition } = useContext(LocationContext);
   
   const changeHandler = (e) => {
     setInput(e.target.value);
@@ -14,6 +14,7 @@ const Search = () => {
   const clickHandler = (e) => {
     const loc = data[e.target.id];
     setLocationData(loc);
+    setPosition(loc.geometry);
     setInputFocus(false);
     e.target.blur();
     
@@ -24,7 +25,7 @@ const Search = () => {
 
     if (data[0]){setLocationData(data[0]);
       setInput(data[0].formatted)}
-    
+    setPosition(data[0].geometry);
     
     setInputFocus(false);
     e.target[0].blur();

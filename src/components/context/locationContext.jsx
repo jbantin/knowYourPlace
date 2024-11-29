@@ -9,6 +9,8 @@ export function LocationContextProvider({ children }) {
   const [weatherData, setWeatherData] = useState(null);
   const [map, setMap] = useState(0);
   const [zoom, setZoom] = useState(15);
+  const [position, setPosition] = useState(null);
+ 
   return (
     <LocationContext.Provider
       value={{
@@ -19,7 +21,10 @@ export function LocationContextProvider({ children }) {
         map,
         setMap,
         zoom,
-        setZoom
+        setZoom,
+        position,
+        setPosition
+        
       }}
     >
       {children}
