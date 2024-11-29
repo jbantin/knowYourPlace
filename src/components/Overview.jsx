@@ -30,7 +30,7 @@ const Overview = () => {
         history: [],
       });
       const result = await chatSession.sendMessage(
-        `tell me some interresting facts about the area,${weatherData.name} and district lon:${weatherData.coord.lon},lat:${weatherData.coord.lat} .`
+        `tell me some interresting facts about the area,${weatherData.name} and district lon:${weatherData.coord.lon},lat:${weatherData.coord.lat}.`
       );
       let responseArray = result.response.text().split("**");
       let newResponse = "";
