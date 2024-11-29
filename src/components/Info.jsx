@@ -29,27 +29,27 @@ const Info = () => {
   }, [locationData]);
   return (
     <>
-      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[10vh]">
+      <div className="dark:text-white bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[11vh]">
         {weatherData ? (
           <div className="justify-center">
             {forecast ? (
               <div>
                 <button onClick={buttonClickHandler}>
-                    {forecast ? "->current" : "forecast"}
-                  </button>
-              <div className="flex mx-[5%] overflow-x-auto gap-5 w-[90%] ">
-
-                {forecastData.list.map((data, i) => (
-                  <h1 key={i}>
-                    {data.dt_txt.split(" ")[1].split(":")[0]}:00{" "}
-                    {data.main.temp}°C
-                  </h1>
-                ))}
-              </div></div>
+                  {forecast ? "->current" : "forecast"}
+                </button>
+                <div className="flex mx-[5%] overflow-x-auto gap-5 w-[90%] ">
+                  {forecastData.list.map((data, i) => (
+                    <h1 key={i}>
+                      {data.dt_txt.split(" ")[1].split(":")[0]}:00{" "}
+                      {data.main.temp}°C
+                    </h1>
+                  ))}
+                </div>
+              </div>
             ) : (
               <div className="flex justify-evenly">
-                <div>
-                  <button onClick={buttonClickHandler}>
+                <div className="flex flex-col justify-evenly ">
+                  <button className="bg-red-200 text-sm underline rounded" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
                   <h1 className="font-bold">{weatherData.name}</h1>
