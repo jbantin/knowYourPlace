@@ -4,6 +4,7 @@ import Info from "./components/Info";
 import Overview from "./components/Overview";
 import Search from "./components/Search";
 import Map from "./components/Map";
+import SkinChange from "./components/SkinChange";
 import {
   LocationContext,
   LocationContextProvider,
@@ -17,6 +18,7 @@ function App() {
         <Search />
 
         <Map />
+        <SkinChange/>
         
         <div>
           <Info />

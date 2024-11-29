@@ -6,7 +6,7 @@ const Search = () => {
   const [inputFocus, setInputFocus] = useState(false);
   const [data, setData] = useState([]);
   const { setLocationData, locationData } = useContext(LocationContext);
-  console.log(inputFocus);
+  
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
@@ -16,13 +16,15 @@ const Search = () => {
     setLocationData(loc);
     setInputFocus(false);
     e.target.blur();
+    
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (data[0]){setLocationData(data[0]);
+      setInput(data[0].formatted)}
     
-    setLocationData(data[0]);
-    setInput(data[0].formatted)
     
     setInputFocus(false);
     e.target[0].blur();

@@ -7,9 +7,20 @@ export function LocationContextProvider({ children }) {
     geometry: { lat: 53.552343789837124, lng: 10.017986297607424 },
   });
   const [weatherData, setWeatherData] = useState(null);
+  const [map, setMap] = useState(0);
+  const [zoom, setZoom] = useState(15);
   return (
     <LocationContext.Provider
-      value={{ locationData, setLocationData, weatherData, setWeatherData }}
+      value={{
+        locationData,
+        setLocationData,
+        weatherData,
+        setWeatherData,
+        map,
+        setMap,
+        zoom,
+        setZoom
+      }}
     >
       {children}
     </LocationContext.Provider>

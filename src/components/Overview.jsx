@@ -23,7 +23,7 @@ const Overview = () => {
 
   useEffect(() => {
     if (!weatherData) return;
-    console.log(weatherData);
+   
     const getInfo = async (loc) => {
       const chatSession = model.startChat({
         generationConfig,
