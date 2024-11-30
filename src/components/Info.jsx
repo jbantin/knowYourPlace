@@ -52,7 +52,7 @@ const Info = () => {
                   <button className="bg-slate-700 text-sm py-2 rounded xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
-                  <h1 className="font-bold">{weatherData.name}</h1>
+                  <h1 className="font-bold text-xl">{weatherData.name}</h1>
                 </div>
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
