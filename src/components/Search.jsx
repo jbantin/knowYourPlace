@@ -57,7 +57,7 @@ const Search = () => {
             onChange={changeHandler}
             value={input}
             type="text"
-            placeholder="location"
+            placeholder="search your location"
           />
         </form>
         <div className="fixed z-[1500] dark:bg-slate-800 ">
