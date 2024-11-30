@@ -29,15 +29,15 @@ const Info = () => {
   }, [locationData]);
   return (
     <>
-      <div className="dark:text-white bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[11vh]">
+      <div className="dark:text-white bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  ">
         {weatherData ? (
           <div className="justify-center">
             {forecast ? (
-              <div>
-                <button onClick={buttonClickHandler}>
+              <div className="p-2">
+                <button className="bg-slate-700 text-sm p-2 mb-2 rounded xl:bg-red-900" onClick={buttonClickHandler}>
                   {forecast ? "->current" : "forecast"}
                 </button>
-                <div className="flex mx-[5%] overflow-x-auto gap-5 w-[90%] ">
+                <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
                   {forecastData.list.map((data, i) => (
                     <h1 key={i}>
                       {data.dt_txt.split(" ")[1].split(":")[0]}:00{" "}
@@ -49,7 +49,7 @@ const Info = () => {
             ) : (
               <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className="bg-red-200 text-sm underline rounded" onClick={buttonClickHandler}>
+                  <button className="bg-slate-700 text-sm py-2 rounded xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
                   <h1 className="font-bold">{weatherData.name}</h1>
@@ -69,7 +69,7 @@ const Info = () => {
             )}
           </div>
         ) : (
-          <h1></h1>
+          <h1>jkjk</h1>
         )}
       </div>
     </>
