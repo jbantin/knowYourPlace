@@ -51,7 +51,7 @@ const Overview = () => {
 
   return (
     <>
-      <div className="dark:text-white  bg-gray-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-4 h-[26vh] overflow-x-auto">
+      <div className="dark:text-white  bg-slate-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-4 xl:px-24 overflow-x-auto">
         <p dangerouslySetInnerHTML={{ __html: info }}></p>
       </div>
     </>

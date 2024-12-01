@@ -27,17 +27,21 @@ const Info = () => {
     };
     fetchWeather();
   }, [locationData]);
+
+  console.log(weatherData);
+
   return (
     <>
-      <div className="dark:text-white bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  h-[11vh]">
+      <div className="dark:text-white bg-slate-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  ">
         {weatherData ? (
           <div className="justify-center">
             {forecast ? (
-              <div>
-                <button onClick={buttonClickHandler}>
+              <div className="p-2">
+                {/* 2nd button */}
+                <button className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg xl:bg-red-900 " onClick={buttonClickHandler}>
                   {forecast ? "->current" : "forecast"}
                 </button>
-                <div className="flex mx-[5%] overflow-x-auto gap-5 w-[90%] ">
+                <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
                   {forecastData.list.map((data, i) => (
                     <h1 key={i}>
                       {data.dt_txt.split(" ")[1].split(":")[0]}:00{" "}
@@ -49,16 +53,18 @@ const Info = () => {
             ) : (
               <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className="bg-red-200 text-sm underline rounded" onClick={buttonClickHandler}>
+                  <button className="min-w-40 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
-                  <h1 className="font-bold">{weatherData.name}</h1>
+                  <h1 className="font-bold text-xl">{weatherData.name}</h1>              
                 </div>
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                   alt=""
+                  className="bg-slate-300 rounded-full"
+        
                 />
-                <div className="text-right text-sm flex flex-col self-center">
+                <div className="text-right text-xs flex flex-col self-center">
                   <p>weather : {weatherData.weather[0].description}</p>
 
                   <p>temperature : {weatherData.main.temp}°C </p>
@@ -69,7 +75,7 @@ const Info = () => {
             )}
           </div>
         ) : (
-          <h1></h1>
+          <h1>jkjk</h1>
         )}
       </div>
     </>

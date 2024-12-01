@@ -8,7 +8,7 @@ export function LocationContextProvider({ children }) {
   });
   const [weatherData, setWeatherData] = useState(null);
   const [map, setMap] = useState(0);
-  const [zoom, setZoom] = useState(15);
+  const [zoom, setZoom] = useState(11);
   const [position, setPosition] = useState(null);
  
   return (

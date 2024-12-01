@@ -53,18 +53,18 @@ const Search = () => {
         <form onSubmit={submitHandler} className="" action="">
           <input
             onFocus={()=>setInputFocus(true)}
-            className="w-[90%] rounded-2xl p-2 bg-gray-200 dark:bg-slate-600 dark:text-white"
+            className="w-[90%] rounded-2xl p-2 bg-slate-200 dark:bg-slate-600 dark:text-white"
             onChange={changeHandler}
             value={input}
             type="text"
-            placeholder="location"
+            placeholder="search your location"
           />
         </form>
-        <div className="fixed z-[1500] dark:bg-slate-800 ">
+        <div className="fixed left-6 xl:left-90 z-[1500] bg-slate-300 dark:bg-slate-800 rounded-xl p-1 text-left pl-1">
           {data && inputFocus &&
             data.map((loc, i) => (
               <h1
-                className="dark:text-white"
+                className="dark:text-white hover:bg-slate-200 dark:hover:bg-slate-500 p-1 text-sm rounded-[8px]"
                 onClick={clickHandler}
                 key={i}
                 id={i}
