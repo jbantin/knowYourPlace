@@ -51,9 +51,9 @@ const Info = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex justify-around">
+              <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className=" bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
+                  <button className="min-w-40 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
                   <h1 className="font-bold text-xl">{weatherData.name}</h1>              
