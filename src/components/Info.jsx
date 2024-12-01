@@ -34,7 +34,8 @@ const Info = () => {
           <div className="justify-center">
             {forecast ? (
               <div className="p-2">
-                <button className="bg-slate-700 text-sm p-2 mb-2 rounded xl:bg-red-900" onClick={buttonClickHandler}>
+                {/* 2nd button */}
+                <button className="bg-slate-700 text-sm p-2 mb-2 rounded xl:bg-red-900 " onClick={buttonClickHandler}>
                   {forecast ? "->current" : "forecast"}
                 </button>
                 <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
@@ -49,7 +50,7 @@ const Info = () => {
             ) : (
               <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className="bg-slate-700 text-sm py-2 rounded xl:bg-red-900" onClick={buttonClickHandler}>
+                  <button className=" bg-slate-300 dark:bg-slate-700 hover:bg-fuchsia-600 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
                   <h1 className="font-bold text-xl">{weatherData.name}</h1>
@@ -57,6 +58,8 @@ const Info = () => {
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                   alt=""
+                  className="bg-slate-400 rounded-full"
+        
                 />
                 <div className="text-right text-sm flex flex-col self-center">
                   <p>weather : {weatherData.weather[0].description}</p>

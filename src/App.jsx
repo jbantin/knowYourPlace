@@ -12,7 +12,7 @@ import {
 
 function App() {
   return (
-    <div className=" dark:bg-slate-800">
+    <div className=" dark:bg-slate-800 bg-slate-300">
       <LocationContextProvider>
         <Header />
         <Search />
