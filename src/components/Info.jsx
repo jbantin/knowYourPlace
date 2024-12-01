@@ -27,15 +27,18 @@ const Info = () => {
     };
     fetchWeather();
   }, [locationData]);
+
+  console.log(weatherData);
+
   return (
     <>
-      <div className="dark:text-white bg-gray-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  ">
+      <div className="dark:text-white bg-slate-200 dark:bg-slate-600 my-4 mx-3 rounded-lg  text-center  ">
         {weatherData ? (
           <div className="justify-center">
             {forecast ? (
               <div className="p-2">
                 {/* 2nd button */}
-                <button className="bg-slate-700 text-sm p-2 mb-2 rounded xl:bg-red-900 " onClick={buttonClickHandler}>
+                <button className="dark:bg-slate-700 bg-slate-300 text-sm p-2 mb-2 rounded xl:bg-red-900 " onClick={buttonClickHandler}>
                   {forecast ? "->current" : "forecast"}
                 </button>
                 <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
@@ -50,15 +53,15 @@ const Info = () => {
             ) : (
               <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className=" bg-slate-300 dark:bg-slate-700 hover:bg-fuchsia-600 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
+                  <button className=" bg-slate-300 dark:bg-slate-700 hover:border-purple-700 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
-                  <h1 className="font-bold text-xl">{weatherData.name}</h1>
+                  <h1 className="font-bold text-xl">{weatherData.name}</h1>              
                 </div>
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                   alt=""
-                  className="bg-slate-400 rounded-full"
+                  className="bg-slate-300 rounded-full"
         
                 />
                 <div className="text-right text-sm flex flex-col self-center">

@@ -60,11 +60,11 @@ const Search = () => {
             placeholder="search your location"
           />
         </form>
-        <div className="fixed z-[1500] dark:bg-slate-800 ">
+        <div className="fixed left-6 xl:left-90 z-[1500] bg-slate-300 dark:bg-slate-800 rounded-b-xl p-1 text-left pl-1">
           {data && inputFocus &&
             data.map((loc, i) => (
               <h1
-                className="dark:text-white"
+                className="dark:text-white hover:bg-slate-200 dark:hover:bg-slate-500 p-1 text-sm rounded-[8px]"
                 onClick={clickHandler}
                 key={i}
                 id={i}

@@ -26,7 +26,7 @@ const SkinChange = () => {
                   setMap(i);
                   setDropDown(false);
                 }}
-                className="bg-slate-500 p-1 mb-2 rounded-lg dark:text-white"
+                className="bg-slate-200 dark:bg-slate-400 p-1 mb-2 rounded-lg dark:text-white"
               >
                 {map.name}
               </button>
