@@ -8,11 +8,9 @@ import { useMap, useMapEvents } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
 import mapArray from "./Skins";
 
-
 function LocationMarker() {
   const { position, setPosition } = useContext(LocationContext);
-  // const [position, setPosition] = useState(null);
-  const { setLocationData,zoom ,setZoom} = useContext(LocationContext);
+  const { setLocationData, zoom, setZoom } = useContext(LocationContext);
 
   const map = useMapEvents({
     click(e) {
@@ -33,10 +31,9 @@ function LocationMarker() {
 const ChangeMapView = ({ coords }) => {
   const { zoom } = useContext(LocationContext);
   console.log(zoom);
-  
+
   const map = useMap();
   useEffect(() => {
-    
     map.setView(coords, zoom);
   }, [coords, map]);
   return null;
@@ -44,8 +41,8 @@ const ChangeMapView = ({ coords }) => {
 
 const Map = () => {
   const contextData = useContext(LocationContext);
-  const { map, setMap,zoom } = contextData;
-  
+  const { map, setMap, zoom } = contextData;
+
   return (
     <>
       <div id="map" className="my-3 m-3 rounded-lg h-[50vh] overflow-hidden ">
@@ -71,8 +68,6 @@ const Map = () => {
           />
           <LocationMarker />
         </MapContainer>
-        
-     
       </div>
     </>
   );
