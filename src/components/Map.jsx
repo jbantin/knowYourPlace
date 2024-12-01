@@ -50,7 +50,7 @@ const Map = () => {
     <>
       <div id="map" className="my-3 m-3 rounded-lg h-[50vh] overflow-hidden ">
         <MapContainer
-          className="w-full h-[60vh]"
+          className="w-full h-[60vh] "
           center={[
             contextData.locationData.geometry.lat,
             contextData.locationData.geometry.lng,

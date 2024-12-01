@@ -38,7 +38,7 @@ const Info = () => {
             {forecast ? (
               <div className="p-2">
                 {/* 2nd button */}
-                <button className="dark:bg-slate-700 bg-slate-300 text-sm p-2 mb-2 rounded xl:bg-red-900 " onClick={buttonClickHandler}>
+                <button className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg xl:bg-red-900 " onClick={buttonClickHandler}>
                   {forecast ? "->current" : "forecast"}
                 </button>
                 <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
@@ -51,9 +51,9 @@ const Info = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex justify-evenly">
+              <div className="flex justify-around">
                 <div className="flex flex-col justify-evenly ">
-                  <button className=" bg-slate-300 dark:bg-slate-700 hover:border-purple-700 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
+                  <button className=" bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg xl:bg-red-900" onClick={buttonClickHandler}>
                     {forecast ? "->current" : "forecast"}
                   </button>
                   <h1 className="font-bold text-xl">{weatherData.name}</h1>              
@@ -64,7 +64,7 @@ const Info = () => {
                   className="bg-slate-300 rounded-full"
         
                 />
-                <div className="text-right text-sm flex flex-col self-center">
+                <div className="text-right text-xs flex flex-col self-center">
                   <p>weather : {weatherData.weather[0].description}</p>
 
                   <p>temperature : {weatherData.main.temp}°C </p>
