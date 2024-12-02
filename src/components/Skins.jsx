@@ -20,6 +20,12 @@ const mapArray = [
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   },
   {
+    name: "Autobahnen",
+    attribution:
+      "Map data: &copy; <a href='http://www.govdata.de/dl-de/by-2-0'>dl-de/by-2-0</a>",
+    url: "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
+  },
+  {
     name: "World Street Map",
     attribution:
       "Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
