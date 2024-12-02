@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { Marker, Popup } from "react-leaflet";
@@ -42,7 +42,6 @@ function LocationMarker() {
 
 const ChangeMapView = ({ coords }) => {
   const { zoom } = useContext(LocationContext);
-  console.log(zoom);
 
   const map = useMap();
   useEffect(() => {
@@ -52,6 +51,13 @@ const ChangeMapView = ({ coords }) => {
 };
 
 const Map = () => {
+  const [railRoads, setRailroads] = useState(false);
+  let railRoadsCheckbox = useRef();
+ 
+  const railRoadHandler = (e) => {
+    setRailroads(railRoadsCheckbox.current.checked);
+  };
+
   const contextData = useContext(LocationContext);
   const { map, setMap, zoom } = contextData;
 
@@ -71,6 +77,14 @@ const Map = () => {
             attribution={mapArray[map].attribution}
             url={mapArray[map].url}
           />
+          {railRoads ? (
+            <TileLayer
+              attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="https://www.OpenRailwayMap.org">OpenRailwayMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+              url="https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"
+            />
+          ) : (
+            <></>
+          )}
           {/* <DraggableMarker /> */}
           <ChangeMapView
             coords={[
@@ -80,6 +94,14 @@ const Map = () => {
           />
           <LocationMarker />
         </MapContainer>
+        <p className="absolute z-[1600] top-[30%] left-[4vw] xl:left-[2vw] ">
+          <input
+            type="checkbox"
+            ref={railRoadsCheckbox}
+            onClick={railRoadHandler}
+          />{" "}
+          Railroads
+        </p>
       </div>
     </>
   );

@@ -28,7 +28,7 @@ const Info = () => {
     fetchWeather();
   }, [locationData]);
 
-  console.log(weatherData);
+  
 
   return (
     <>
