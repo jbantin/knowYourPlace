@@ -7,6 +7,8 @@ import DraggableMarker from "./DraggableMarker";
 import { useMap, useMapEvents } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
 import mapArray from "./Skins";
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
 
 function LocationMarker() {
   const { position, setPosition } = useContext(LocationContext);
@@ -22,7 +24,17 @@ function LocationMarker() {
   });
 
   return position === null ? null : (
-    <Marker position={position}>
+    // <Marker position={position}>
+    <Marker
+      position={position}
+      icon={
+        new Icon({
+          iconUrl: markerIconPng,
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+        })
+      }
+    >
       <Popup>You are here</Popup>
     </Marker>
   );
