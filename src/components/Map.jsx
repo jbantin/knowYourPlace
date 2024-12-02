@@ -3,7 +3,7 @@ import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import DraggableMarker from "./DraggableMarker";
+// import DraggableMarker from "./DraggableMarker";
 import { useMap, useMapEvents } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
 import mapArray from "./Skins";
@@ -53,7 +53,7 @@ const ChangeMapView = ({ coords }) => {
 const Map = () => {
   const [railRoads, setRailroads] = useState(false);
   let railRoadsCheckbox = useRef();
- 
+
   const railRoadHandler = (e) => {
     setRailroads(railRoadsCheckbox.current.checked);
   };
