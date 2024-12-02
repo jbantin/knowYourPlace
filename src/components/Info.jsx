@@ -15,7 +15,7 @@ const Info = () => {
   useEffect(() => {
     const fetchWeather = async (city) => {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
       );
       const weather = await response.json();
       setWeatherData(weather);
@@ -38,7 +38,10 @@ const Info = () => {
             {forecast ? (
               <div className="p-2">
                 {/* 2nd button */}
-                <button className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg xl:bg-red-900 " onClick={buttonClickHandler}>
+                <button
+                  className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg xl:bg-red-900 "
+                  onClick={buttonClickHandler}
+                >
                   {forecast ? "->current" : "forecast"}
                 </button>
                 <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
@@ -53,16 +56,18 @@ const Info = () => {
             ) : (
               <div className="flex justify-evenly">
                 <div className="flex flex-col justify-evenly ">
-                  <button className="min-w-40 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg " onClick={buttonClickHandler}>
+                  <button
+                    className="min-w-40 bg-slate-300 dark:bg-slate-700 hover:bg-slate-200 text-sm py-2 rounded-lg "
+                    onClick={buttonClickHandler}
+                  >
                     {forecast ? "->current" : "forecast"}
                   </button>
-                  <h1 className="font-bold text-xl">{weatherData.name}</h1>              
+                  <h1 className="font-bold text-xl">{weatherData.name}</h1>
                 </div>
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                   alt=""
                   className="bg-slate-300 rounded-full"
-        
                 />
                 <div className="text-right text-xs flex flex-col self-center">
                   <p>weather : {weatherData.weather[0].description}</p>
