@@ -62,7 +62,7 @@ const Search = () => {
             placeholder="search your location"
           />
         </form>
-        <div className="fixed left-[7.5%] xl:left-90 z-[1500] bg-slate-300 dark:bg-slate-800 rounded-xl p-1 text-left pl-1 w-[85%]">
+        <div className="absolute top-[122px] left-[7.5%] xl:left-90 z-[1500] bg-slate-300 dark:bg-slate-800 rounded-xl p-1 text-left pl-1 w-[85%]">
           {data &&
             inputFocus &&
             data.map((loc, i) => (

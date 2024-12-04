@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LocationContext } from "./context/locationContext";
-const weatherUrl =
-  "http://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=10&appid=de069a928e6b04d0efc907091fbbae01&units=metric";
+
 const API_KEY = "de069a928e6b04d0efc907091fbbae01&units=metric";
 const Info = () => {
   const { weatherData, setWeatherData } = useContext(LocationContext);
@@ -27,8 +26,6 @@ const Info = () => {
     };
     fetchWeather();
   }, [locationData]);
-
-  
 
   return (
     <>

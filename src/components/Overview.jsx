@@ -23,7 +23,7 @@ const Overview = () => {
 
   useEffect(() => {
     if (!weatherData) return;
-   
+
     const getInfo = async (loc) => {
       const chatSession = model.startChat({
         generationConfig,
@@ -51,7 +51,7 @@ const Overview = () => {
 
   return (
     <>
-      <div className="dark:text-white  bg-slate-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-4 xl:px-24 overflow-x-auto">
+      <div className="dark:text-white  bg-slate-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-4 xl:px-24 overflow-x-auto min-h-[24vh]">
         <p dangerouslySetInnerHTML={{ __html: info }}></p>
       </div>
     </>
