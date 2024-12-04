@@ -36,10 +36,10 @@ const Info = () => {
               <div className="p-2">
                 {/* 2nd button */}
                 <button
-                  className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg xl:bg-red-900 "
+                  className="dark:bg-slate-700 bg-slate-300 hover:bg-slate-200 text-sm p-2 mb-2 rounded-lg "
                   onClick={buttonClickHandler}
                 >
-                  {forecast ? "->current" : "forecast"}
+                  {forecast ? "current" : "forecast"}
                 </button>
                 <div className="flex mx-[5%] overflow-x-auto  gap-5 w-[90%] ">
                   {forecastData.list.map((data, i) => (

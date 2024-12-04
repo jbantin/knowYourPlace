@@ -3,12 +3,13 @@ import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-// import DraggableMarker from "./DraggableMarker";
+
 import { useMap, useMapEvents } from "react-leaflet";
 import { LocationContext } from "./context/locationContext";
 import mapArray from "./Skins";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
+const API_KEY = "de069a928e6b04d0efc907091fbbae01";
 
 function LocationMarker() {
   const { position, setPosition } = useContext(LocationContext);
@@ -86,7 +87,7 @@ const Map = () => {
           {clouds ? (
             <TileLayer
               attribution='Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
-              url="http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid=de069a928e6b04d0efc907091fbbae01&units=metric"
+              url={`http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid=${API_KEY}&units=metric`}
             />
           ) : (
             <></>
