@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { LocationContext } from "./context/locationContext";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const apiKey = "AIzaSyCD5N9puQOoYtBcdhfo3fOdzZT16vx9n8s";
+const apiKey = import.meta.env.VITE_GEMINI_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({

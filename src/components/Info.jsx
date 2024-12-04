@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LocationContext } from "./context/locationContext";
 
-const API_KEY = "de069a928e6b04d0efc907091fbbae01&units=metric";
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const Info = () => {
   const { weatherData, setWeatherData } = useContext(LocationContext);
   const [forecastData, setForecastData] = useState(null);
@@ -14,12 +14,12 @@ const Info = () => {
   useEffect(() => {
     const fetchWeather = async (city) => {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}&units=metric`
       );
       const weather = await response.json();
       setWeatherData(weather);
       const response2 = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locationData.geometry.lat}&lon=${locationData.geometry.lng}&appid=${API_KEY}&units=metric`
       );
       const data = await response2.json();
       setForecastData(data);

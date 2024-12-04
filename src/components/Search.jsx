@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { LocationContext } from "./context/locationContext";
-
+const CAGE_API = import.meta.env.VITE_OPENCAGE_API_KEY;
 const Search = () => {
   const [input, setInput] = useState("");
   const [inputFocus, setInputFocus] = useState(false);
@@ -38,7 +38,7 @@ const Search = () => {
       if (address != "") {
         try {
           const response = await fetch(
-            `https://api.opencagedata.com/geocode/v1/json?q=${address}&key=e31bf5171c604a6587630b27de2475f9`
+            `https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${CAGE_API}`
           );
           const result = await response.json();
           setData(result.results);
