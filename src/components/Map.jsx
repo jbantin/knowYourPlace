@@ -124,7 +124,7 @@ const Map = () => {
           />
           <LocationMarker />
         </MapContainer>
-        <div className="absolute z-[1600] top-[25%] left-[4vw] xl:left-[2vw] bg-slate-200 bg-opacity-50 rounded-xl p-2">
+        <div className="absolute z-[1600] top-[22%] left-[4vw] xl:left-[2vw] bg-slate-200 bg-opacity-50 rounded-xl p-2">
           {" "}
           <p>
             <input
