@@ -65,12 +65,12 @@ const Map = () => {
   const cloudHandler = (e) => {
     setClouds(cloudCheckbox.current.checked);
   };
-  const [names, setNames] = useState(false);
-  let namesCheckbox = useRef();
+  // const [names, setNames] = useState(false);
+  // let namesCheckbox = useRef();
 
-  const namesHandler = (e) => {
-    setNames(namesCheckbox.current.checked);
-  };
+  // const namesHandler = (e) => {
+  //   setNames(namesCheckbox.current.checked);
+  // };
 
   const contextData = useContext(LocationContext);
   const { map, setMap, zoom } = contextData;
@@ -95,6 +95,7 @@ const Map = () => {
             <TileLayer
               attribution='Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
               url={`http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid=${API_KEY}&units=metric`}
+              opacity={0.6}
             />
           ) : (
             <></>
@@ -107,14 +108,14 @@ const Map = () => {
           ) : (
             <></>
           )}
-          {names ? (
+          {/* {names ? (
             <TileLayer
               attribution='Map data: &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://tiles.stadiamaps.com/tiles/stamen_terrain_labels/{z}/{x}/{y}{r}.png"
+              url="https://tiles.stadiamaps.com/tiles/stamen_toner_labels/{z}/{x}/{y}{r}.png"
             />
           ) : (
             <></>
-          )}
+          )} */}
           {/* <DraggableMarker /> */}
           <ChangeMapView
             coords={[
@@ -138,10 +139,10 @@ const Map = () => {
             <input type="checkbox" ref={cloudCheckbox} onClick={cloudHandler} />{" "}
             Clouds
           </p>
-          <p>
+          {/* <p>
             <input type="checkbox" ref={namesCheckbox} onClick={namesHandler} />{" "}
             Names
-          </p>
+          </p> */}
         </div>
       </div>
     </>
