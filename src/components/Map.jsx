@@ -9,7 +9,7 @@ import { LocationContext } from "./context/locationContext";
 import mapArray from "./Skins";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
-// const API_KEY = "de069a928e6b04d0efc907091fbbae01";
+
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 function LocationMarker() {
