@@ -23,6 +23,13 @@ function LocationMarker() {
       setZoom(map.getZoom());
       setLocationData({ geometry: { lat: e.latlng.lat, lng: e.latlng.lng } });
     },
+    zoom(e){
+      setZoom(map.getZoom());
+    },
+    move(e){
+
+      setLocationData({ geometry: { lat: map.getCenter().lat, lng: map.getCenter().lng } });
+    }
   });
 
   return position === null ? null : (
@@ -46,23 +53,28 @@ const ChangeMapView = ({ coords }) => {
   const { zoom } = useContext(LocationContext);
 
   const map = useMap();
+  
   useEffect(() => {
     map.setView(coords, zoom);
+    
   }, [coords, map]);
   return null;
 };
 
 const Map = () => {
+  
   const [railRoads, setRailroads] = useState(false);
   let railRoadsCheckbox = useRef();
 
   const railRoadHandler = (e) => {
+    
     setRailroads(railRoadsCheckbox.current.checked);
   };
   const [clouds, setClouds] = useState(false);
   let cloudCheckbox = useRef();
 
   const cloudHandler = (e) => {
+  
     setClouds(cloudCheckbox.current.checked);
   };
   // const [names, setNames] = useState(false);

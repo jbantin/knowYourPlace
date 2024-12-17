@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const Info = () => {
   const { weatherData, setWeatherData } = useContext(LocationContext);
   const [forecastData, setForecastData] = useState(null);
-  const { locationData } = useContext(LocationContext);
+  const { locationData,position } = useContext(LocationContext);
   const [forecast, setForecast] = useState(false);
   const buttonClickHandler = () => {
     setForecast(!forecast);
@@ -25,7 +25,7 @@ const Info = () => {
       setForecastData(data);
     };
     fetchWeather();
-  }, [locationData]);
+  }, [position]);
 
   return (
     <>
