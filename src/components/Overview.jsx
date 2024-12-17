@@ -19,12 +19,13 @@ const generationConfig = {
 
 const Overview = () => {
   const [info, setInfo] = useState();
-  const { weatherData } = useContext(LocationContext);
-
+  const { weatherData, loading, setLoading } = useContext(LocationContext);
+  console.log(loading);
   useEffect(() => {
     if (!weatherData) return;
 
     const getInfo = async (loc) => {
+      setLoading(true);
       const chatSession = model.startChat({
         generationConfig,
         history: [],
@@ -43,7 +44,7 @@ const Overview = () => {
       }
       let newResponse2 = newResponse.split("*").join("</br>");
       setInfo(newResponse2);
-
+      setLoading(false);
       return;
     };
     getInfo();
@@ -52,7 +53,11 @@ const Overview = () => {
   return (
     <>
       <div className="dark:text-white  bg-slate-200 dark:bg-slate-600 my-2 mx-3 rounded-lg px-8 py-4 xl:px-24 overflow-x-auto min-h-[24vh]">
-        <p dangerouslySetInnerHTML={{ __html: info }}></p>
+        {loading ? (
+          <h2 className="text-center text-xl"> Loading...</h2>
+        ) : (
+          <p dangerouslySetInnerHTML={{ __html: info }}></p>
+        )}
       </div>
     </>
   );
